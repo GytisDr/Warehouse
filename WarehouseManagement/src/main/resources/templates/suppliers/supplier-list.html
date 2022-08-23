@@ -26,8 +26,8 @@
 						<th>Location</th>
 						<th>Email</th>
 						<th>Phone Number</th>
-		<!--  				<th>Edit</th>
-						<th>Delete</th>  -->
+		 				<th>Edit</th>
+						<th>Delete</th>  
 					</tr>
 				</thead>
 				<tbody>
@@ -36,9 +36,9 @@
 						<td th:text="${supplier.location}"></td>
 						<td th:text="${supplier.email}"></td>
 						<td th:text="${supplier.phoneNumber}"></td>
-		<!--  				<td><a class="btn btn-light" th:href="@{/admin/edit/{id}(id=${student.id})}">Edit</a></td>
-						<td><a class="btn btn-warning" th:href="@{/admin/delete/{id}(id=${student.id})}">Delete</a></td>
-					-->
+		  				<td><a class="btn btn-light" th:href="@{/suppliers/edit/{id}(id=${supplier.id})}">Edit</a></td>
+						<td><a class="btn btn-warning" th:href="@{/suppliers/delete/{id}(id=${supplier.id})}">Delete</a></td>
+					
 					</tr>
 				</tbody>
 			</table>

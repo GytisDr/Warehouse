@@ -1,6 +1,7 @@
 package lt.warehousemanagement.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +21,13 @@ public class ProductService {
 	
 	public List<Product> getAll() {
 		return productRepository.findAll();
+	}
+	
+	public void delete(Product product) {
+		productRepository.delete(product);
+	}
+	
+	public Optional<Product> findById(int id) {
+		return productRepository.findById(id);
 	}
 }
