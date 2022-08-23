@@ -27,6 +27,8 @@
 						<th>Description</th>
 						<th>Location</th>
 						<th>Price</th>
+						<th>Edit</th>
+						<th>Delete</th>  
 					</tr>
 				</thead>
 				<tbody>
@@ -36,12 +38,17 @@
 						<td th:text="${product.description}"></td>
 						<td th:text="${product.location}"></td>
 						<td th:text="${product.price}"></td>
+						<td><a class="btn btn-light" th:href="@{/products/edit/{id}(id=${product.id})}">Edit</a></td>
+						<td><a class="btn btn-warning" th:href="@{/products/delete/{id}(id=${product.id})}">Delete</a></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<p>
 			<a class="btn btn-primary" href="/products/create">Add a new product</a>
+		</p>
+		<p>
+			<a class="btn btn-primary" href="/products/create">Add a new order</a>
 		</p>
 	</div>
 </body>

@@ -3,6 +3,7 @@ package lt.warehousemanagement.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import lt.warehousemanagement.entities.Product;
@@ -30,5 +31,31 @@ public class ProductController {
 	public String getAllProducts(Model model) {
 		model.addAttribute("products", productService.getAll());
 		return "/products/product-list";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteProduct(@PathVariable("id") int id, Model model) {
+		Product product = productService.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid product Id:" + id));
+		productService.delete(product);
+		return "redirect:/products/all";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String showUpdateForm(@PathVariable("id") int id, Model model) {
+		Product product = productService.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid product Id:" + id));
+		model.addAttribute("product", product);
+		return "products/update-product";
+	}
+	
+	@PostMapping("/update/{id}")
+	public String updateProduct(@PathVariable("id") int id, Product product, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			product.setId(id);
+			return "products/update-product";
+		}
+		productService.save(product);
+		return "redirect:/products/all";
 	}
 }
