@@ -18,14 +18,16 @@ public class Product {
 	String description;
 	String location;
 	double price;
+	String barcode;
 	
 	public Product() {}
 
-	public Product(String name, String description, String location, double price) {
+	public Product(String name, String description, String location, double price, String barcode) {
 		this.name = name;
 		this.description = description;
 		this.location = location;
 		this.price = price;
+		this.barcode = barcode;
 	}
 
 	public int getId() {
@@ -68,10 +70,18 @@ public class Product {
 		this.price = price;
 	}
 
+	public String getBarcode() {
+		return barcode;
+	}
+
+	public void setBarcode(String barcode) {
+		this.barcode = barcode;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", location=" + location
-				+ ", price=" + price + "]";
+				+ ", price=" + price + ", barcode=" + barcode + "]";
 	}
 
 }
