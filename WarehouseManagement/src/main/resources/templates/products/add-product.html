@@ -36,6 +36,12 @@
 				<input class="form-check-input w-auto" type="number" step="0.01" th:field="*{price}" id="price"
 					placeholder="Price"> 
 			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="barcode">Barcode</label> 
+				<input class="form-check-input w-auto" type="text" th:field="*{barcode}" id="barcode" 
+				 class="form-control" required minlength="13" maxlength="13"
+					placeholder="Barcode"> 
+			</div>
 			 <button type="submit" class="btn btn-primary">Add Product</button>
 		</form>
 	</div>

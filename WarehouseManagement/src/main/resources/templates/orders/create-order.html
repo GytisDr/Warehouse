@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Order from List</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js">
+	
+</script>
+</head>
+<body>
+	<form class="form-control" action="#" th:action="@{/orders/save}"
+		th:object="${order}" method="post">
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="managerName">Manager name</label> 
+				<input class="form-check-input w-auto"
+				 type="text"
+				 th:field="${order.managerName}"
+				 id="managerName"
+				 placeholder="Manager name"> 
+			</div>
+		
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Location</th>
+					<th>Price</th>
+					<th>Barcode</th>
+					<th>Select</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${products}">
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.description}"></td>
+					<td th:text="${product.location}"></td>
+					<td th:text="${product.price}"></td>
+					<td th:text="${product.barcode}"></td>
+
+			  		<td><input type="checkbox" th:field="*{products}" th:value="${product.id}"/>
+			  		</td>
+				</tr>
+			</tbody>
+		</table>
+		<button type="submit" class="btn btn-primary" value="Submit">Save order</button>
+	</form>
+	
+</body>
+</html>
