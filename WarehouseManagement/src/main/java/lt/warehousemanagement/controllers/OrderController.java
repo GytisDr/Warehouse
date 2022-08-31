@@ -1,7 +1,5 @@
 package lt.warehousemanagement.controllers;
 
-import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import lt.warehousemanagement.entities.Order;
-import lt.warehousemanagement.entities.Product;
 import lt.warehousemanagement.services.OrderService;
 import lt.warehousemanagement.services.ProductService;
 
@@ -50,5 +47,5 @@ public class OrderController {
 		orderService.save(order);
 		return "redirect:/orders/create";
 	}
-
+	
 }

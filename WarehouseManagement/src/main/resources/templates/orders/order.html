@@ -16,37 +16,37 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
+				<th>Barcode</th>
 				<th>Name</th>
 				<th>Description</th>
 				<th>Location</th>
 				<th>Price</th>
-				<th>Barcode</th>
+				
 				<!--  				<th>Edit</th>
 						<th>Delete</th>  -->
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="product : ${order.products}">
+				<td th:text="${product.barcode}"></td>
 				<td th:text="${product.name}"></td>
 				<td th:text="${product.description}"></td>
 				<td th:text="${product.location}"></td>
 				<td th:text="${product.price}"></td>
-				<td th:text="${product.barcode}"></td>
-			<!--  	<td th:text="${#numbers.formatDecimal(product.price,'COMMA')}"></td>-->
 				
 				<!--  				<td><a class="btn btn-light" th:href="@{/admin/edit/{id}(id=${student.id})}">Edit</a></td>
 						<td><a class="btn btn-warning" th:href="@{/admin/delete/{id}(id=${student.id})}">Delete</a></td>
 					-->
-					<tbody>
-  <tr th:each="product : ${order.products}">
-    <td th:text="${product.name}" />
-    <td th:text="${#lists.size(product.price)}" />
-    <td th:text="${#aggregates.sum(product.price.![#lists.size(products)])}" />
-  </tr>
-</tbody>
-			</tr>
 		</tbody>
+		<tfoot>
+            <tr>
+                <td colspan="4" class="text-end">Total:</td>
+                <td th:text="${order.totalPrice}"></td>
+            </tr>
+        </tfoot>
 	</table>
-	
+	<p>
+			<a class="btn btn-primary" href="/orders/all">Orders list</a>
+	</p>
 </body>
 </html>

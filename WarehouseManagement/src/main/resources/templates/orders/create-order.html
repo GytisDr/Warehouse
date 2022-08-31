@@ -27,21 +27,22 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
+					<th>Barcode</th>
 					<th>Name</th>
 					<th>Description</th>
 					<th>Location</th>
 					<th>Price</th>
-					<th>Barcode</th>
 					<th>Select</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="product : ${products}">
+					<td th:text="${product.barcode}"></td>
 					<td th:text="${product.name}"></td>
 					<td th:text="${product.description}"></td>
 					<td th:text="${product.location}"></td>
 					<td th:text="${product.price}"></td>
-					<td th:text="${product.barcode}"></td>
+					
 
 			  		<td><input type="checkbox" th:field="*{products}" th:value="${product.id}"/>
 			  		</td>
@@ -50,6 +51,9 @@
 		</table>
 		<button type="submit" class="btn btn-primary" value="Submit">Save order</button>
 	</form>
+	<p>
+		<a class="btn btn-primary" href="/orders/all">Order list</a>
+	</p>
 	
 </body>
 </html>
