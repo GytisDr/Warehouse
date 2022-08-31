@@ -17,6 +17,12 @@
 		<form class="form-control" action="#" th:action="@{/products/save}"
 			th:object="${product}" method="post">
 			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="barcode">Barcode</label> 
+				<input class="form-check-input w-auto" type="text" th:field="*{barcode}" id="barcode" 
+				 required minlength="13" maxlength="13"
+					placeholder="Barcode"> 
+			</div>
+			<div class="mb-3 mt-3 w-auto">
 				<label class="form-check-label w-25" for="name">Name</label> 
 				<input class="form-check-input w-auto" type="text" th:field="*{name}" id="name"
 					placeholder="Name"> 	
@@ -36,17 +42,13 @@
 				<input class="form-check-input w-auto" type="number" step="0.01" th:field="*{price}" id="price"
 					placeholder="Price"> 
 			</div>
-			<div class="mb-3 mt-3 w-auto">
-				<label class="form-check-label w-25" for="barcode">Barcode</label> 
-				<input class="form-check-input w-auto" type="text" th:field="*{barcode}" id="barcode" 
-				 class="form-control" required minlength="13" maxlength="13"
-					placeholder="Barcode"> 
-			</div>
+			
 			 <button type="submit" class="btn btn-primary">Add Product</button>
 		</form>
-	</div>
-	<p>
+		<p>
 			<a class="btn btn-primary" href="/products/all">List all products</a>
 		</p>
+	</div>
+	
 </body>
 </html>

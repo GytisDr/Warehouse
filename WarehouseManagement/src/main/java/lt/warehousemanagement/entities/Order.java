@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import lt.warehousemanagement.utils.ArithmeticUtils;
+
 @Entity
 @Table(name="orders")
 public class Order {
@@ -14,20 +16,14 @@ public class Order {
 	int id;
 	
 	String managerName;
-	double price;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	List<Product> products = new ArrayList<Product>();
 	
 	public Order() {}
 
-	public Order(String managerName, int quantity) {
+	public Order(String managerName, List<Product> products) {
 		this.managerName = managerName;
-	}
-
-	public Order(String managerName, int quantity, double price, List<Product> products) {
-		this.managerName = managerName;
-		this.price = price;
 		this.products = products;
 	}
 
@@ -47,20 +43,20 @@ public class Order {
 		this.managerName = managerName;
 	}
 
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
 	public List<Product> getProducts() {
 		return products;
 	}
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+	
+	public double totalPrice() {
+
+		return products.stream()
+		  .map(p -> p.getPrice())
+		  .reduce((double) 0, ArithmeticUtils::add);
+		  
 	}
 
 	@Override
