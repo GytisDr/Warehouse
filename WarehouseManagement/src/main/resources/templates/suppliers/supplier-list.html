@@ -11,9 +11,12 @@
 </script>
 </head>
 <body>
-
+	
 	<div class="container-fluid p-5 bg-primary text-white text-center">
+	<th:block th:include="/_header"></th:block>
+	<a th:href="@{/logout}">Logout</a>
 		<h2>Suppliers List</h2>
+		
 	</div>
 	<div class="container-fluid" th:switch="${suppliers}">
 		<h2 th:case="null">No suppliers entered yet!</h2>
@@ -24,27 +27,27 @@
 					<tr>
 						<th>Name</th>
 						<th>Location</th>
-						<th>Email</th>
-						<th>Phone Number</th>
-		 				<th>Edit</th>
-						<th>Delete</th>  
+						<th sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">Email</th>
+						<th sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">Phone Number</th>
+		 				<th sec:authorize="hasAuthority('ROLE_ADMIN')">Edit</th>
+						<th sec:authorize="hasAuthority('ROLE_ADMIN')">Delete</th>  
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="supplier : ${suppliers}">
 						<td th:text="${supplier.name}"></td>
 						<td th:text="${supplier.location}"></td>
-						<td th:text="${supplier.email}"></td>
-						<td th:text="${supplier.phoneNumber}"></td>
-		  				<td><a class="btn btn-light" th:href="@{/suppliers/edit/{id}(id=${supplier.id})}">Edit</a></td>
-						<td><a class="btn btn-warning" th:href="@{/suppliers/delete/{id}(id=${supplier.id})}">Delete</a></td>
+						<td sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" th:text="${supplier.email}"></td>
+						<td sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" th:text="${supplier.phoneNumber}"></td>
+		  				<td><a class="btn btn-light" sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/suppliers/edit/{id}(id=${supplier.id})}">Edit</a></td>
+						<td><a class="btn btn-warning" sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/suppliers/delete/{id}(id=${supplier.id})}">Delete</a></td>
 					
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<p>
-			<a class="btn btn-primary" href="/suppliers/create">Add a new supplier</a>
+			<a class="btn btn-primary" sec:authorize="hasAuthority('ROLE_ADMIN')" href="/suppliers/create">Add a new supplier</a>
 		</p>
 		<p>
 			<a class="btn btn-primary" href="/products/all">Products list</a>
