@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Supplier list</title>
 <meta charset="utf-8">
@@ -12,14 +12,13 @@
 </head>
 <body>
 	
-	<div class="container-fluid p-5 bg-primary text-white text-center">
-	<th:block th:include="/_header"></th:block>
-	<a th:href="@{/logout}">Logout</a>
-		<h2>Suppliers List</h2>
+	<div class="container-fluid p-5 bg-primary text-white text-center" >
+ 	<div th:include="/_header"> </div>
+		<h2 th:text="#{suppliermessage}"></h2>
 		
 	</div>
 	<div class="container-fluid" th:switch="${suppliers}">
-		<h2 th:case="null">No suppliers entered yet!</h2>
+		<h2 th:case="null" th:text="#{nosupplier}"></h2>
 		<div th:case="*">
 
 			<table class="table table-hover">
@@ -47,14 +46,16 @@
 			</table>
 		</div>
 		<p>
-			<a class="btn btn-primary" sec:authorize="hasAuthority('ROLE_ADMIN')" href="/suppliers/create">Add a new supplier</a>
+			<a class="btn btn-primary" sec:authorize="hasAuthority('ROLE_ADMIN')" href="/suppliers/create" th:text="#{addsupplier}"></a>
 		</p>
 		<p>
-			<a class="btn btn-primary" href="/products/all">Products list</a>
+			<a class="btn btn-primary" href="/products/all" th:text="#{productbutton}"></a>
 		</p>
 		<p>
-			<a class="btn btn-primary" href="/orders/all">Orders list</a>
+			<a class="btn btn-primary" href="/orders/all" th:text="#{orderbutton}"></a>
 		</p>
+		
 	</div>
+
 </body>
 </html>

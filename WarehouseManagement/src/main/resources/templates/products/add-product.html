@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="container mt-3">
-		<h2>Please enter new product</h2>
+		<h2 th:text="#{enterproduct}"></h2>
 
 		<form class="form-control" action="#" th:action="@{/products/save}"
 			th:object="${product}" method="post">
@@ -43,10 +43,10 @@
 					placeholder="Price"> 
 			</div>
 			
-			 <button type="submit" class="btn btn-primary">Add Product</button>
+			 <button type="submit" class="btn btn-primary" th:text="#{saveproduct}"></button>
 		</form>
 		<p>
-			<a class="btn btn-primary" href="/products/all">List all products</a>
+			<a class="btn btn-primary" href="/products/all" th:text="#{productbutton}"></a>
 		</p>
 	</div>
 	

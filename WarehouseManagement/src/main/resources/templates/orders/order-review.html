@@ -21,9 +21,6 @@
 				<th>Description</th>
 				<th>Location</th>
 				<th>Price</th>
-				
-				<!--  				<th>Edit</th>
-						<th>Delete</th>  -->
 			</tr>
 		</thead>
 		<tbody>
@@ -34,9 +31,6 @@
 				<td th:text="${product.location}"></td>
 				<td th:text="${product.price}"></td>
 				
-				<!--  				<td><a class="btn btn-light" th:href="@{/admin/edit/{id}(id=${student.id})}">Edit</a></td>
-						<td><a class="btn btn-warning" th:href="@{/admin/delete/{id}(id=${student.id})}">Delete</a></td>
-					-->
 		</tbody>
 		<tfoot>
             <tr>
@@ -46,7 +40,7 @@
         </tfoot>
 	</table>
 	<p>
-			<a class="btn btn-primary" href="/orders/all">Orders list</a>
+			<a class="btn btn-primary" href="/orders/all" th:text="#{orderbutton}"></a>
 	</p>
 </body>
 </html>

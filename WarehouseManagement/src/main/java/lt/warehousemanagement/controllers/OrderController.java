@@ -32,7 +32,7 @@ public class OrderController {
 		Order order = orderService.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid order Id:" + id));
 		model.addAttribute("order", order);
-		return "/orders/order";
+		return "/orders/order-review";
 	}
 	
 	@GetMapping("/create")

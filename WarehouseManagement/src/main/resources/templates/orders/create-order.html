@@ -13,6 +13,7 @@
 </script>
 </head>
 <body>
+	<h2 th:text="#{enterorder}"></h2>
 	<form class="form-control" action="#" th:action="@{/orders/save}"
 		th:object="${order}" method="post">
 			<div class="mb-3 mt-3 w-auto">
@@ -49,10 +50,10 @@
 				</tr>
 			</tbody>
 		</table>
-		<button type="submit" class="btn btn-primary" value="Submit">Save order</button>
+		<button type="submit" class="btn btn-primary" value="Submit" th:text="#{saveorder}"></button>
 	</form>
 	<p>
-		<a class="btn btn-primary" href="/orders/all">Order list</a>
+		<a class="btn btn-primary" href="/orders/all" th:text="#{orderbutton}"></a>
 	</p>
 	
 </body>

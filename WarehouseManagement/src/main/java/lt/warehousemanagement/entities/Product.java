@@ -22,12 +22,13 @@ public class Product {
 	
 	public Product() {}
 
-	public Product(String name, String description, String location, double price, String barcode) {
+	public Product(String barcode, String name, String description, String location, double price) {
+		this.barcode = barcode;
 		this.name = name;
 		this.description = description;
 		this.location = location;
 		this.price = price;
-		this.barcode = barcode;
+		
 	}
 
 	public int getId() {
