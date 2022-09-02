@@ -15,10 +15,11 @@
 <body>
 
 	<div class="container-fluid p-5 bg-primary text-white text-center">
-		<h2>Product List</h2>
+		<div th:include="/_header"> </div>
+		<h2 th:text="#{productmessage}"></h2>
 	</div>
 	<div class="container-fluid" th:switch="${products}">
-		<h2 th:case="null">No products entered yet!</h2>
+		<h2 th:case="null" th:text="#{noproduct}"></h2>
 		<div th:case="*">
 
 			<table class="table table-hover">
@@ -51,14 +52,13 @@
 			</table>
 		</div>
 		<p>
-			<a class="btn btn-primary" href="/products/create">Add a new
-				product</a>
+			<a class="btn btn-primary" href="/products/create" th:text="#{addproduct}"></a>
 		</p>
 		<p>
-			<a class="btn btn-primary" href="/orders/create">Add a new order</a>
+			<a class="btn btn-primary" href="/orders/create" th:text="#{addorder}"></a>
 		</p>
 		<p>
-			<a class="btn btn-primary" href="/orders/all">Orders list</a>
+			<a class="btn btn-primary" href="/orders/all" th:text="#{orderbutton}"></a>
 		</p>
 	</div>
 </body>

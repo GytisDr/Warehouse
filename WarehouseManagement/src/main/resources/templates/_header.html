@@ -18,8 +18,9 @@ $(document).ready(function() {
 <div class="header-container"> 
    <div class="header-bar">
       <th:block sec:authorize="isAuthenticated()">
-         
-         <h4 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]</h4>
+         <h4 th:text="#{usernamehello}"></h4>
+         <h4 th:inline="text"> [[${#httpServletRequest.remoteUser}]]</h4>
+         <a th:href="@{/logout}">Logout</a>
       </th:block>
    </div>
   <span th:text="#{lang.change}"></span>:

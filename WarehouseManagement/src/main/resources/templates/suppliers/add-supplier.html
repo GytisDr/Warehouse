@@ -11,8 +11,9 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+	
 	<div class="container mt-3">
-		<h2>Please enter new supplier</h2>
+		<h2 th:text="#{entersupplier}"></h2>
 
 		<form class="form-control" action="#" th:action="@{/suppliers/save}"
 			th:object="${supplier}" method="post">
@@ -37,10 +38,10 @@
 					placeholder="Phone Number"> 
 			</div>
 
-			 <button type="submit" class="btn btn-primary">Add Supplier</button>
+			 <button type="submit" class="btn btn-primary" th:text="#{savesupplier}"></button>
 		</form>
 		<p>
-			<a class="btn btn-primary" href="/suppliers/all">List all suppliers</a>
+			<a class="btn btn-primary" href="/suppliers/all" th:text="#{supplierbutton}"></a>
 		</p>
 	</div>
 	
