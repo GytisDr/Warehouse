@@ -25,5 +25,10 @@ public class User {
 	//Loads roles ASAP when User is loaded
 	@ManyToMany(fetch = FetchType.EAGER)
 	Collection<Role> roles = new ArrayList<>();
+	
+	public void addRole(Role role) {
+        this.roles.add(role);
+	}
+ 
 
 }

@@ -12,25 +12,31 @@
 </head>
 <body>
 
-	<div class="container-fluid p-5 bg-primary text-white text-center">
+	<div class="container-fluid p-5 bg-secondary text-white text-center">
 	<div th:include="/_header"> </div>
 		<h2 th:text="#{greeting}"></h2>
 	</div>
 	<div>
 	<p>
-			<a class="btn btn-primary" href="/suppliers/all" th:text="#{supplierbutton}"></a>
+			<a class="btn btn-secondary" href="/suppliers/all" th:text="#{supplierbutton}"></a>
 	</p>
 	<p>
-			<a class="btn btn-primary" href="/products/all" th:text="#{productbutton}"></a>
+			<a class="btn btn-secondary" href="/products/all" th:text="#{productbutton}"></a>
 	</p>
 	<p>
-			<a class="btn btn-primary" href="/orders/all" th:text="#{orderbutton}"></a>
+			<a class="btn btn-secondary" href="/orders/all" th:text="#{orderbutton}"></a>
 	</p>
 	<p>
-			<a class="btn btn-primary" href="/login" th:text="#{loginbutton}"></a>
+			<a class="btn btn-secondary" sec:authorize="hasAuthority('ROLE_ADMIN')" href="/admin/all" th:text="#{userbutton}"></a>
 	</p>
 	<p>
-			<a class="btn btn-primary" href="/logout" th:text="#{logoutbutton}"></a>
+			<a class="btn btn-secondary" href="/register" th:text="#{register}"></a>
+	</p>
+	<p>
+			<a class="btn btn-secondary" href="/loginUm" th:text="#{loginbutton}"></a>
+	</p>
+	<p>
+			<a class="btn btn-secondary" href="/logout" th:text="#{logoutbutton}"></a>
 	</p>
 	</div>
 	

@@ -17,7 +17,7 @@ public class Order {
 	
 	String managerName;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany
 	List<Product> products = new ArrayList<Product>();
 	
 	public Order() {}
@@ -50,8 +50,8 @@ public class Order {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-	
-	public double totalPrice() {
+
+	public double totalAmount() {
 
 		return products.stream()
 		  .map(p -> p.getPrice())

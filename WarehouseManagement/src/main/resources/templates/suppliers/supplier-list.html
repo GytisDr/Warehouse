@@ -12,7 +12,7 @@
 </head>
 <body>
 	
-	<div class="container-fluid p-5 bg-primary text-white text-center" >
+	<div class="container-fluid p-5 bg-secondary text-white text-center" >
  	<div th:include="/_header"> </div>
 		<h2 th:text="#{suppliermessage}"></h2>
 		
@@ -21,7 +21,7 @@
 		<h2 th:case="null" th:text="#{nosupplier}"></h2>
 		<div th:case="*">
 
-			<table class="table table-hover">
+			<table class="table table-dark table-striped table-hover">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -46,14 +46,17 @@
 			</table>
 		</div>
 		<p>
-			<a class="btn btn-primary" sec:authorize="hasAuthority('ROLE_ADMIN')" href="/suppliers/create" th:text="#{addsupplier}"></a>
+			<a class="btn btn-secondary" sec:authorize="hasAuthority('ROLE_ADMIN')" href="/suppliers/create" th:text="#{addsupplier}"></a>
 		</p>
 		<p>
-			<a class="btn btn-primary" href="/products/all" th:text="#{productbutton}"></a>
+			<a class="btn btn-secondary" href="/products/all" th:text="#{productbutton}"></a>
 		</p>
 		<p>
-			<a class="btn btn-primary" href="/orders/all" th:text="#{orderbutton}"></a>
+			<a class="btn btn-secondary" href="/orders/all" th:text="#{orderbutton}"></a>
 		</p>
+		<p>
+			<a class="btn btn-secondary" href="/index" th:text="#{index}"></a>
+	</p>
 		
 	</div>
 
