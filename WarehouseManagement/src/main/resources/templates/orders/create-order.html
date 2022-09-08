@@ -18,21 +18,22 @@
 		th:object="${order}" method="post">
 			<div class="mb-3 mt-3 w-auto">
 				<label class="form-check-label w-25" for="managerName">Manager name</label> 
-				<input class="form-check-input w-auto"
+				<input class="form-check-input w-auto form-control"
 				 type="text"
 				 th:field="${order.managerName}"
+				 required
 				 id="managerName"
 				 placeholder="Manager name"> 
 			</div>
 		
-		<table class="table table-hover">
+		<table class="table table-dark table-striped table-hover">
 			<thead>
 				<tr>
 					<th>Barcode</th>
 					<th>Name</th>
 					<th>Description</th>
 					<th>Location</th>
-					<th>Price</th>
+					<th>Price</th>	
 					<th>Select</th>
 				</tr>
 			</thead>
@@ -44,16 +45,18 @@
 					<td th:text="${product.location}"></td>
 					<td th:text="${product.price}"></td>
 					
+ 
+
 
 			  		<td><input type="checkbox" th:field="*{products}" th:value="${product.id}"/>
 			  		</td>
 				</tr>
 			</tbody>
 		</table>
-		<button type="submit" class="btn btn-primary" value="Submit" th:text="#{saveorder}"></button>
+		<button type="submit" class="btn btn-secondary" value="Submit" th:text="#{saveorder}"></button>
 	</form>
 	<p>
-		<a class="btn btn-primary" href="/orders/all" th:text="#{orderbutton}"></a>
+		<a class="btn btn-secondary" href="/orders/all" th:text="#{orderbutton}"></a>
 	</p>
 	
 </body>

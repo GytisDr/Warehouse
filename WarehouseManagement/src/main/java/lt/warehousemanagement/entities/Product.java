@@ -12,13 +12,14 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	int id;
+	private int id;
 	
-	String name;
-	String description;
-	String location;
-	double price;
-	String barcode;
+	private String barcode;
+	private String name;
+	private String description;
+	private String location;
+	private double price;
+	
 	
 	public Product() {}
 

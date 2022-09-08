@@ -12,22 +12,37 @@
 <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-	<form class="form-control" action="#"
-		th:action="@{/suppliers/update/{id}(id=${supplier.id})}" th:object="${supplier}"
-		method="post">
-		<label for="name">Name</label> <input type="text" th:field="*{name}"
-			id="name" placeholder="Name"> <span
-			th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> 
-		<label for="location">Location</label> <input type="text" th:field="*{location}"
-			id="location" placeholder="Location"> <span
-			th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
-		<label	for="email">Email</label> <input type="text" th:field="*{email}"
-			id="email" placeholder="Email"> <span
-			th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span> 
-		<label	for="phoneNumber">Phone Number</label> <input type="text" th:field="*{phoneNumber}"
-			id="phoneNumber" placeholder="Phone Number"> <span
-			th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span> <input
-			type="submit" value="Update Supplier">
-	</form>
+	<div class="container mt-3">
+		<form class="form-control" action="#"
+			th:action="@{/suppliers/update/{id}(id=${supplier.id})}"
+			th:object="${supplier}" method="post">
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="name">Name</label> <input class="form-check-input w-auto" type="text" th:field="*{name}"
+					id="name" placeholder="Name"> <span
+					th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="location">Location</label> <input class="form-check-input w-auto" type="text"
+					th:field="*{location}" id="location" placeholder="Location">
+				<span th:if="${#fields.hasErrors('location')}"
+					th:errors="*{location}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="email">Email</label> <input class="form-check-input w-auto" type="text"
+					th:field="*{email}" id="email" placeholder="Email"> <span
+					th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="phoneNumber">Phone Number</label> <input class="form-check-input w-auto" type="text"
+					th:field="*{phoneNumber}" id="phoneNumber"
+					placeholder="Phone Number"> <span
+					th:if="${#fields.hasErrors('phoneNumber')}"
+					th:errors="*{phoneNumber}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<input type="submit" value="Update Supplier">
+			</div>
+		</form>
+	</div>
 </body>
 </html>

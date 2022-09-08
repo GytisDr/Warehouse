@@ -25,11 +25,14 @@ public class SecurityConfig {
     	//Disable CSRF
     	http.csrf().disable();
     	
-    	http.authorizeRequests().antMatchers("/suppliers/**","/products/**")
+    	http.authorizeRequests().antMatchers("/index", "/", "/register","/process_register","/loginUm").permitAll()
+    	.antMatchers("/suppliers/**","/products/**")
     	.access("hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')")
+    	.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
         .anyRequest().authenticated()
         .and()
-        .formLogin().permitAll(); 
+        .formLogin().permitAll().and()
+    	.logout().logoutSuccessUrl("/index");
     	
     	
     	return http.build();

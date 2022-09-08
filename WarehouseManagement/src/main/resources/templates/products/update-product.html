@@ -12,26 +12,47 @@
 <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-	<form class="form-control" action="#"
-		th:action="@{/products/update/{id}(id=${product.id})}" th:object="${product}"
-		method="post">
-		<label for="name">Name</label> <input type="text" th:field="*{name}"
-			id="name" placeholder="Name"> <span
-			th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span> 
-		<label	for="description">Description</label> <input type="text" th:field="*{description}"
-			id="description" placeholder="Description"> <span
-			th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span> 
-		<label for="location">Location</label> <input type="text" th:field="*{location}"
-			id="location" placeholder="Location"> <span
-			th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
-		<label	for="price">Price</label> <input type="number" step="0.01" th:field="*{price}"
-			id="price" placeholder="Price"> <span
-			th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span> 
-		<label for="barcode">Barcode</label> <input type="text" th:field="*{barcode}"
-			id="barcode" required minlength="13" maxlength="13" placeholder="barcode"> <span
-			th:if="${#fields.hasErrors('barcode')}" th:errors="*{barcode}"></span>
-		<input
-			type="submit" value="Update Product">
-	</form>
+	<div class="container mt-3">
+		<form class="form-control" action="#"
+			th:action="@{/products/update/{id}(id=${product.id})}"
+			th:object="${product}" method="post">
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="name">Name</label>
+				 <input class="form-check-input w-auto"
+					type="text" th:field="*{name}" id="name" placeholder="Name">
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="description">Description</label>
+				<input class="form-check-input w-auto" type="text" th:field="*{description}" id="description"
+					placeholder="Description"> <span
+					th:if="${#fields.hasErrors('description')}"
+					th:errors="*{description}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="location">Location</label>
+				<input class="form-check-input w-auto" type="text" th:field="*{location}" id="location"
+					placeholder="Location"> <span
+					th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="price">Price</label>
+				<input class="form-check-input w-auto"
+					type="number" step="0.01" th:field="*{price}" id="price"
+					placeholder="Price"> <span
+					th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<label class="form-check-label w-25" for="barcode">Barcode</label>
+				<input class="form-check-input w-auto"
+					type="text" th:field="*{barcode}" id="barcode" required
+					minlength="13" maxlength="13" placeholder="barcode"> <span
+					th:if="${#fields.hasErrors('barcode')}" th:errors="*{barcode}"></span>
+			</div>
+			<div class="mb-3 mt-3 w-auto">
+				<input type="submit" value=" UpdateProduct">
+			</div>
+		</form>
+	</div>
 </body>
 </html>

@@ -12,7 +12,7 @@ import lt.warehousemanagement.services.SupplierService;
 
 @Controller
 @RequestMapping("/suppliers")
-public class SupplierController implements WebMvcConfigurer {
+public class SupplierController {
 	
 	@Autowired
 	SupplierService supplierService;

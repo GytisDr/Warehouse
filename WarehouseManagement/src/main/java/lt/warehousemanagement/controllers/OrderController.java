@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import lt.warehousemanagement.entities.Order;
+import lt.warehousemanagement.entities.Supplier;
 import lt.warehousemanagement.services.OrderService;
 import lt.warehousemanagement.services.ProductService;
 
@@ -37,7 +38,7 @@ public class OrderController {
 	
 	@GetMapping("/create")
 	public String createOrder(Model model,Order order) {
-		model.addAttribute("products", productService.getAll()) ;
+		model.addAttribute("products", productService.getAll());
 		model.addAttribute("order",order);
 		return "/orders/create-order";
 	}
@@ -46,6 +47,14 @@ public class OrderController {
 	public String saveOrder(Order order, Model model) {
 		orderService.save(order);
 		return "redirect:/orders/create";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteOrder(@PathVariable("id") int id, Model model) {
+		Order order = orderService.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid supplier Id:" + id));
+		orderService.delete(order);
+		return "redirect:/orders/all";
 	}
 	
 }

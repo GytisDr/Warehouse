@@ -3,6 +3,7 @@ package lt.warehousemanagement.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -17,6 +18,7 @@ import lt.warehousemanagement.entities.Role;
 import lt.warehousemanagement.entities.User;
 import lt.warehousemanagement.repositories.RoleRepository;
 import lt.warehousemanagement.repositories.UserRepository;
+import static lt.warehousemanagement.utils.RoleUtils.*;
 
 @Service
 @Transactional 
@@ -25,6 +27,8 @@ public class UserServiceImp implements UserService, UserDetailsService {
 
 	private final UserRepository userRepo;
 	private final RoleRepository roleRepo;
+	
+	
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -83,5 +87,23 @@ public class UserServiceImp implements UserService, UserDetailsService {
 		
 	}
 	
+	public User get(Long id) {
+	    return userRepo.findById(id).get();
+	}
+	 
+	public List<Role> listRoles() {
+	    return roleRepo.findAll();
+	}
+	public Optional<User> findById(Long id) {
+		return userRepo.findById(id);
+	}
+	public void delete(User user) {
+		userRepo.delete(user);
+		
+	}
+	public Role findByName(String string) {
+		
+		return roleRepo.findByName(USER);
+	}
 	
 }
