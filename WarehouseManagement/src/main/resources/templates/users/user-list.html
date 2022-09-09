@@ -34,8 +34,8 @@
             <td th:text="${user.name}">Name</td>
             <td th:text="${user.username}">Username</td>
             <td th:text="${user.roles}">Roles</td>
-            <td><a th:href="@{/admin/edit/{id}(id=${user.id})}">Edit</a></td>
-            <td><a th:href="@{/admin/delete/{id}(id=${user.id})}">Delete</a></td>
+            <td><a class="btn btn-light" th:href="@{/admin/edit/{id}(id=${user.id})}">Edit</a></td>
+            <td><a class="btn btn-warning" th:href="@{/admin/delete/{id}(id=${user.id})}">Delete</a></td>
         </tr>
     </tbody>
 </table>

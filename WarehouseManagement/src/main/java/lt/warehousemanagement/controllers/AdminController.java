@@ -55,6 +55,9 @@ public class AdminController {
 			user.setId(id);
 			return "users/user-form";
 		}
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
 		userServiceImp.save(user);
 		return "redirect:/admin/all";
 	}

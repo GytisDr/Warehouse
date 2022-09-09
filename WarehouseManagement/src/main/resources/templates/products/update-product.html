@@ -13,6 +13,7 @@
 </head>
 <body>
 	<div class="container mt-3">
+	<h2 th:text="#{editproduct}"></h2>
 		<form class="form-control" action="#"
 			th:action="@{/products/update/{id}(id=${product.id})}"
 			th:object="${product}" method="post">
@@ -50,7 +51,7 @@
 					th:if="${#fields.hasErrors('barcode')}" th:errors="*{barcode}"></span>
 			</div>
 			<div class="mb-3 mt-3 w-auto">
-				<input type="submit" value=" UpdateProduct">
+				<button type="submit" class="btn btn-secondary" th:text="#{updatebutton}"></button>
 			</div>
 		</form>
 	</div>
