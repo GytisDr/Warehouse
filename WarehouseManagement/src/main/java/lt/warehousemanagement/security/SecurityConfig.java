@@ -31,7 +31,7 @@ public class SecurityConfig {
     	.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
         .anyRequest().authenticated()
         .and()
-        .formLogin().permitAll().and()
+        .formLogin().loginPage("/loginUm").permitAll().defaultSuccessUrl("/index", true).and()
     	.logout().logoutSuccessUrl("/index");
     	
     	

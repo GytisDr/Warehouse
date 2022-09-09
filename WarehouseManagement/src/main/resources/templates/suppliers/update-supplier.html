@@ -13,6 +13,7 @@
 </head>
 <body>
 	<div class="container mt-3">
+	<h2 th:text="#{editsupplier}"></h2>
 		<form class="form-control" action="#"
 			th:action="@{/suppliers/update/{id}(id=${supplier.id})}"
 			th:object="${supplier}" method="post">
@@ -40,7 +41,7 @@
 					th:errors="*{phoneNumber}"></span>
 			</div>
 			<div class="mb-3 mt-3 w-auto">
-				<input type="submit" value="Update Supplier">
+				<button type="submit" class="btn btn-secondary" th:text="#{updatebutton}"></button>
 			</div>
 		</form>
 	</div>
