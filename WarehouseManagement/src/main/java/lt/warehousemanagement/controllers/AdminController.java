@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import lombok.RequiredArgsConstructor;
 import lt.warehousemanagement.entities.Role;
-import lt.warehousemanagement.entities.Supplier;
 import lt.warehousemanagement.entities.User;
 import lt.warehousemanagement.services.UserServiceImp;
-import static lt.warehousemanagement.utils.RoleUtils.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -38,7 +36,16 @@ public class AdminController {
 	}
 	
 	@PostMapping("/save")
-	public String saveUser(User user) {
+	public String saveUser(User user ,BindingResult result, Model model) {
+		User existingUser = userServiceImp.findByUsername(user.getUsername());
+
+        if(existingUser != null && existingUser.getUsername() != null && !existingUser.getUsername().isEmpty()){
+            result.rejectValue("username", null,
+                    "There is already an account registered with the same username");
+        }
+        if(result.hasErrors()){
+            return "/admin/create-user";
+        }
 		Role roleUser = userServiceImp.findByName("USER");
         user.addRole(roleUser);
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

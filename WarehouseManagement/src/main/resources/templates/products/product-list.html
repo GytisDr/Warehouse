@@ -25,7 +25,6 @@
 			<table class="table table-dark table-striped table-hover">
 				<thead>
 					<tr>
-						<th>ID</th>
 						<th>Barcode</th>
 						<th>Name</th>
 						<th>Description</th>
@@ -37,7 +36,6 @@
 				</thead>
 				<tbody>
 					<tr th:each="product : ${products}">
-						<td th:text="${product.id}"></td>
 						<td th:text="${product.barcode}"></td>
 						<td th:text="${product.name}"></td>
 						<td th:text="${product.description}"></td>
