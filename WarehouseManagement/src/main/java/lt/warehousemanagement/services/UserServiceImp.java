@@ -71,6 +71,7 @@ public class UserServiceImp implements UserService, UserDetailsService {
 		userRepo.save(user);
 		
 	}
+	
 	@Override
 	public User getUser(String username) {
 		return userRepo.findByUsername(username);
@@ -105,5 +106,10 @@ public class UserServiceImp implements UserService, UserDetailsService {
 		
 		return roleRepo.findByName(USER);
 	}
+	
+	public User findByUsername(String username) {
+		return userRepo.findByUsername(username);
+	}
+	
 	
 }

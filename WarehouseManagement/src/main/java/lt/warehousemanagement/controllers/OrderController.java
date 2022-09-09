@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import lt.warehousemanagement.entities.Order;
-import lt.warehousemanagement.entities.Supplier;
 import lt.warehousemanagement.services.OrderService;
 import lt.warehousemanagement.services.ProductService;
 

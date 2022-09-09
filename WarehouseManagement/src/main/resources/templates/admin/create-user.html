@@ -28,7 +28,9 @@
 				<label class="form-check-label w-25">Username: </label> <input
 					class="form-check-input w-auto form-control"
 					type="text" th:field="*{username}"
-					required />
+					required /> <span
+					class="text-danger"
+                 th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
 			</div>
 
 			<div class="mb-3 mt-3 w-auto">
